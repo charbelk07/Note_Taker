@@ -20,7 +20,7 @@ api.post("/notes", (req, res) => {
     const newNote = {
       title,
       text,
-      user_id: uuid(),
+      id: uuid(),
     };
     readAndAppend(newNote, "./db/db.json");
     res.json(`New Note Added Successfully`);
@@ -29,9 +29,4 @@ api.post("/notes", (req, res) => {
   }
 });
 
-// api.get('/notes/:user_id',(req,res)=>{
-//     readFromFile('./db/db.json').then((data)=>res.json(JSON.parse(data)));
-//     console.info(`${req.method} request received to get a single user_id`)
-
-// })
 module.exports = api;
